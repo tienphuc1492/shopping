@@ -1,0 +1,35 @@
+<div
+  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h1 class="h2">Users</h1>
+</div>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th class="px-3 py-2" scope="col">#</th>
+        <th class="px-3 py-2" scope="col">Name</th>
+        <th class="px-3 py-2" scope="col">Email</th>
+        <th class="px-3 py-2" scope="col">Phone</th>
+        <th class="px-3 py-2" scope="col">Created At</th>
+        <th class="px-3 py-2" scope="col">Updated At</th>
+        <th class="px-3 py-2" scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each data}}
+      <tr>
+        <td class="px-3 py-2">{{ sum @index 1 }}</td>
+        <td class="px-3 py-2">{{ concat this.firstName this.lastName }}</td>
+        <td class="px-3 py-2">{{ this.email }}</td>
+        <td class="px-3 py-2">{{ this.phone }}</td>
+        <td class="px-3 py-2">{{ datetimeFormat this.createdAt 'YYYY-MM-DD HH:mm:ss' }}</td>
+        <td class="px-3 py-2">{{ datetimeFormat this.updatedAt 'YYYY-MM-DD HH:mm:ss' }}</td>
+        <td class="px-3 py-2">
+          <a href="#" class="btn btn-secondary">Orders</a>
+        </td>
+      </tr>
+      {{/each }}
+    </tbody>
+  </table>
+</div>

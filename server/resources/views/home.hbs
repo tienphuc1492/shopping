@@ -1,0 +1,62 @@
+<div
+  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h1 class="h2">Income calculate</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-secondary"
+      >Share</button>
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-secondary"
+      >Export</button>
+    </div>
+    <button
+      type="button"
+      class="btn btn-sm btn-outline-secondary dropdown-toggle"
+    >
+      <span data-feather="calendar"></span>
+      This week
+    </button>
+  </div>
+</div>
+<div class="pb-3">
+  <div class="card p-3">
+    <div class="row p-2">
+      <div class="col-12 col-sm-3 text-bold">Last month income</div>
+      <div class="col-12 col-sm-9">{{currency lastMonthIncome}}</div>
+    </div>
+    <div class="row p-2">
+      <div class="col-12 col-sm-3 text-bold">Current Processing Orders</div>
+      <div class="col-12 col-sm-9">{{processing}}</div>
+    </div>
+    <div class="row p-2">
+      <div class="col-12 col-sm-3 text-bold">Current Delivering Orders</div>
+      <div class="col-12 col-sm-9">{{delivering}}</div>
+    </div>
+    <div class="row p-2">
+      <div class="col-12 col-sm-3 text-bold">Last Month Done Orders</div>
+      <div class="col-12 col-sm-9">{{done}}</div>
+    </div>
+    <div class="row p-2">
+      <div class="col-12 col-sm-3 text-bold">Last Month Cancelled Orders</div>
+      <div class="col-12 col-sm-9">{{cancelled}}</div>
+    </div>
+  </div>
+  <h2 class="mt-4 pb-3 border-bottom">Need Action orders</h2>
+  <div class="row pt-2">
+    {{#each needActions}}
+      <div class="col-md-3 card p-0 mx-2 mb-2">
+        <div class="card-title p-2 rounded bg-brown">
+          <a href="/orders/{{this._id}}">{{this._id}}</a>
+        </div>
+        <div class="card-body">
+          <div>Status: {{ this.status }}</div>
+          <div>Created: {{datetimeFormat this.createdAt 'YYYY-MM-DD HH:mm:ss' }}</div>          
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
